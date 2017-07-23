@@ -61,6 +61,7 @@ public final class KeyCombo: NSObject, NSCopying, NSCoding {
         self.doubledModifiers = true
     }
 
+    // MARK: - NSCopying
     public func copy(with zone: NSZone?) -> Any {
         if doubledModifiers {
             return KeyCombo(doubledCarbonModifiers: modifiers)!
@@ -69,6 +70,7 @@ public final class KeyCombo: NSObject, NSCopying, NSCoding {
         }
     }
 
+    // MARK: - NSCoding
     public init?(coder aDecoder: NSCoder) {
         self.keyCode = aDecoder.decodeInteger(forKey: "keyCode")
         self.modifiers = aDecoder.decodeInteger(forKey: "modifiers")
@@ -88,4 +90,5 @@ public final class KeyCombo: NSObject, NSCopying, NSCoding {
                 modifiers == keyCombo.modifiers &&
                 doubledModifiers == keyCombo.doubledModifiers
     }
+
 }

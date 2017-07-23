@@ -9,7 +9,7 @@
 import Cocoa
 import Carbon
 
-public final class HotKey: Equatable {
+public final class HotKey {
 
     // MARK: - Properties
     public let identifier: String
@@ -74,9 +74,11 @@ public extension HotKey {
 }
 
 // MARK: - Equatable
-public func ==(lhs: HotKey, rhs: HotKey) -> Bool {
-    return lhs.identifier == rhs.identifier &&
+extension HotKey: Equatable {
+    public static func ==(lhs: HotKey, rhs: HotKey) -> Bool {
+        return lhs.identifier == rhs.identifier &&
             lhs.keyCombo == rhs.keyCombo &&
             lhs.hotKeyId == rhs.hotKeyId &&
             lhs.hotKeyRef == rhs.hotKeyRef
+    }
 }
